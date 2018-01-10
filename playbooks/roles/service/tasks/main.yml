@@ -1,0 +1,13 @@
+---
+
+- name: Creating Service File | Kafka
+  template:
+    src: service.j2
+    dest: /usr/lib/systemd/system/kafka.service
+
+- name: Starting kafka Service
+  systemd:
+    name: kafka
+    state: started
+    enabled: true
+    daemon_reload: true

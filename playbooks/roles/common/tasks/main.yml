@@ -1,0 +1,12 @@
+---
+
+- name: Creating Kafka Group | {{ kafkaGroup }}
+  group:
+    name: "{{ memcached_group }}"
+    state: present
+
+- name: Creating Kafka User | {{ kafkaUser }}
+  user:
+    name: "{{ kafkaUser }}"
+    state: present
+    group: "{{ kafkaGroup }}"

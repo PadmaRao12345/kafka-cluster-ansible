@@ -1,0 +1,11 @@
+[Unit]
+Description=kafka daemon
+After=syslog.target network.target
+
+[Service]
+Type=forking
+User={{ kafkaUser }}
+ExecStart=
+
+[Install]
+WantedBy=multi-user.target
