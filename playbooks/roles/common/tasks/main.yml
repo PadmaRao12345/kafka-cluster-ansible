@@ -10,3 +10,25 @@
     name: "{{ kafkaUser }}"
     state: present
     group: "{{ kafkaGroup }}"
+
+- name: Creating Kafka Installation Path Folder
+  file:
+    path: "{{ kafkaInstallPath }}"
+    state: directory
+    recurse: True
+
+- name: Installing OpenJDK8 Java
+  yum:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - java-1.8.0-openjdk
+    - java-1.8.0-openjdk-devel
+
+- name: Installing Common Tools
+  yum:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - tar
+    - unzip

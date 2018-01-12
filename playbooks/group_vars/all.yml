@@ -2,3 +2,16 @@
 
 kafkaGroup: kafka
 kafkaUser: kafka
+
+kafkaVersion: 1.0.0
+kafkaScalaVersion: 2.11
+
+kafkaDownloadUrl: 'http://www-us.apache.org/dist/kafka/{{ kafkaVersion }}/kafka_{{ kafkaScalaVersion }}-{{ kafkaVersion }}.tgz'
+
+# kafka install path
+kafkaInstallPath: /opt
+
+kafkaPort: 9092
+
+# zookeeper string should comma separate value
+kafkaZookeeperAddressString: 192.168.56.100:2181

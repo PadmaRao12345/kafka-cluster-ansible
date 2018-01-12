@@ -1,0 +1,5 @@
+delete.topic.enable = true
+port = {{ kafkaPort }}
+host.name = {{ ansible_fqdn }}
+zookeeper.connect = {{ kafkaZookeeperAddressString }}
+broker.id = {{ kafkaBrokerId.stdout }}

@@ -1,13 +1,13 @@
-- hosts: localhost
-  gather_facts: true
-  become: true
+- hosts: kafka-nodes
+  gather_facts: True
+  become: True
   roles:
     - common
     - install
 
 - hosts: localhost
-  gather_facts: true
-  become: true
+  gather_facts: True
+  become: True
   serial: 1
   roles:
-    - service
+    - kafka-nodes

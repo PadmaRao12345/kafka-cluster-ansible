@@ -1,1 +1,20 @@
 ---
+
+- name: Downloading Kafka | {{ kafkaVersion }}
+  unarchive:
+    src: "{{ kafkaDownloadUrl }}"
+    dest: "{{ kafkaInstallPath }}"
+    group: "{{ kafkaGroup }}"
+    user: "{{ kafkaUser }}"
+    remote_src: yes
+
+- name: Generating Kafka Broker ID
+  shell: "echo {{ ansible_ssh_host }} | cut -d . -f 4"
+  register: kafkaBrokerId
+
+- name: Creating Kafka Broker Config
+  template:
+    src: kafkaBrokerConfig.j2
+    dest: "{{ kafkaInstallPath }}/kafka_{{ kafkaScalaVersion }}-{{ kafkaVersion }}/config/kafka-broker.properties"
+    group: "{{ kafkaGroup }}"
+    user: "{{ kafkaUser }}"

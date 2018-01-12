@@ -7,6 +7,8 @@
 ```
 It assumes you have zookeeper already running in localmode or cluster mode.
 OpenJDK8 will used by default.
+
+Web-UI : https://github.com/yahoo/kafka-manager
 ```
 **For Zookeeper Cluster Mode Installation**
 https://github.com/116davinder/zookeeper-cluster-ansible

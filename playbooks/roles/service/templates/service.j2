@@ -5,7 +5,8 @@ After=syslog.target network.target
 [Service]
 Type=forking
 User={{ kafkaUser }}
-ExecStart=
+ExecStart={{ kafkaInstallPath }}/kafka_{{ kafkaScalaVersion }}-{{ kafkaVersion }}/bin/kafka-server-start.sh {{ kafkaInstallPath }}/kafka_{{ kafkaScalaVersion }}-{{ kafkaVersion }}/config/kafka-broker.properties
+ExecStop={{ kafkaInstallPath }}/kafka_{{ kafkaScalaVersion }}-{{ kafkaVersion }}/bin/kafka-server-stop.sh
 
 [Install]
 WantedBy=multi-user.target
